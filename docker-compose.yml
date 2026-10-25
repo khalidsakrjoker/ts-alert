@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ts-alert:latest
+    environment:
+      - APP_ENV=test
+      - LOG_LEVEL=info
+    volumes:
+      - .:/app
+    command: ["python", "-m", "pytest", "tests"]
